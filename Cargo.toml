@@ -1,0 +1,44 @@
+[package]
+name = "silver-crosschain"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+keywords = ["cross-chain", "interoperability", "bridge", "atomic-swap"]
+categories = ["network-programming"]
+description = "Cross-chain communication and atomic swap implementation for SilverBitcoin"
+
+[dependencies]
+silver-core = { path = "../silver-core" }
+silver-crypto = { path = "../silver-crypto" }
+silver-sharding = { path = "../silver-sharding" }
+
+tokio = { workspace = true }
+async-trait = { workspace = true }
+
+serde = { workspace = true }
+serde_json = { workspace = true }
+bincode = { workspace = true }
+
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+
+tracing = { workspace = true }
+bytes = { workspace = true }
+hex = { workspace = true }
+
+parking_lot = { workspace = true }
+dashmap = { workspace = true }
+
+chrono = { workspace = true }
+blake3 = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+criterion = { workspace = true }
+
+[[bench]]
+name = "crosschain_benchmarks"
+harness = false
