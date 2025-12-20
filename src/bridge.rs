@@ -242,7 +242,7 @@ impl CrossChainBridge {
         self.chains
             .iter()
             .filter(|entry| entry.value().state == ChainState::Connected)
-            .map(|entry| entry.key().clone())
+            .map(|entry| *entry.key())
             .collect()
     }
 

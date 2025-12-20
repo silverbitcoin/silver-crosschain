@@ -4,7 +4,7 @@ use crate::{CrossChainError, CrossChainMessage, Result};
 use dashmap::DashMap;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
-use tracing::{debug, info, warn};
+use tracing::{debug, info};
 
 /// Message route information
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -38,7 +38,7 @@ impl Route {
     }
 
     pub fn with_reliability(mut self, reliability: f32) -> Self {
-        self.reliability = (reliability.max(0.0)).min(1.0);
+        self.reliability = reliability.clamp(0.0, 1.0);
         self
     }
 }
